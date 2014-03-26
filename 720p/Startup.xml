@@ -1,0 +1,15 @@
+<window>
+	<defaultcontrol always="true">10</defaultcontrol>
+	<allowoverlay>no</allowoverlay>
+	<onload condition="System.HasAddon(script.grab.fanart)">RunScript(script.grab.fanart,mode=random,refresh=9)</onload>
+	<onload condition="IsEmpty(Skin.String(HomeMenuColor))">Skin.SetString(HomeMenuColor,White)</onload>
+	<onload condition="Library.HasContent(TVShows) + System.HasAddon(script.tv.show.next.aired) + Skin.HasSetting(NextAired)">RunScript(script.tv.show.next.aired,silent=True)</onload>
+	<controls>
+		<control type="button" id="10">
+			<onfocus condition="Skin.HasSetting(Use_Startup_Playlist)">XBMC.PlayMedia($INFO[Skin.String(Startup_Playlist_Path)])</onfocus>
+			<onfocus>ReplaceWindow(Home)</onfocus>
+			<texturenofocus>-</texturenofocus>
+			<texturefocus>-</texturefocus>
+		</control>
+	</controls>
+</window>

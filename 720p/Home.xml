@@ -1,0 +1,26 @@
+<window id="0">
+	<defaultcontrol always="true">9000</defaultcontrol>
+	<allowoverlay>no</allowoverlay>
+	<onload condition="System.HasAddon(script.artistslideshow) + Skin.HasSetting(UseArtistSlideshow) + Skin.HasSetting(ArtistSlideshowHome)">RunScript(script.artistslideshow, daemon=True)</onload>
+	<onload condition="System.HasAddon(script.randomandlastitems) + Skin.HasSetting(EnableWidgets) + Skin.HasSetting(CustomWidget1) + !IsEmpty(Skin.String(CustomMenu.1.Path)) + [Stringcompare(Skin.String(CustomMenu.1.Type),Video Playlist) | Stringcompare(Skin.String(CustomMenu.1.Type),Music Playlist)]">RunScript(script.randomandlastitems,playlist=$INFO[Skin.String(CustomMenu.1.Path)],method=Last,limit=10,unwatched=True,resume=False,property=CustomWidget1Recent)</onload>
+	<onload condition="System.HasAddon(script.randomandlastitems) + Skin.HasSetting(EnableWidgets) + Skin.HasSetting(CustomWidget1) + !IsEmpty(Skin.String(CustomMenu.1.Path)) + Stringcompare(Skin.String(CustomMenu.1.Type),Video Playlist)">RunScript(script.randomandlastitems,playlist=$INFO[Skin.String(CustomMenu.1.Path)],method=Last, limit=10,unwatched=False,resume=True,property=CustomWidget1Recommended)</onload>
+	<onload condition="System.HasAddon(script.randomandlastitems) + Skin.HasSetting(EnableWidgets) + Skin.HasSetting(CustomWidget2) + !IsEmpty(Skin.String(CustomMenu.2.Path)) + [Stringcompare(Skin.String(CustomMenu.2.Type),Video Playlist) | Stringcompare(Skin.String(CustomMenu.2.Type),Music Playlist)]">RunScript(script.randomandlastitems,playlist=$INFO[Skin.String(CustomMenu.2.Path)],method=Last,limit=10,unwatched=True,resume=False,property=CustomWidget2Recent)</onload>
+	<onload condition="System.HasAddon(script.randomandlastitems) + Skin.HasSetting(EnableWidgets) + Skin.HasSetting(CustomWidget2) + !IsEmpty(Skin.String(CustomMenu.2.Path)) + Stringcompare(Skin.String(CustomMenu.2.Type),Video Playlist)">RunScript(script.randomandlastitems,playlist=$INFO[Skin.String(CustomMenu.2.Path)],method=Last, limit=10,unwatched=False,resume=True,property=CustomWidget2Recommended)</onload>
+	<onload condition="System.HasAddon(script.randomandlastitems) + Skin.HasSetting(EnableWidgets) + Skin.HasSetting(CustomWidget3) + !IsEmpty(Skin.String(CustomMenu.3.Path)) + [Stringcompare(Skin.String(CustomMenu.3.Type),Video Playlist) | Stringcompare(Skin.String(CustomMenu.3.Type),Music Playlist)]">RunScript(script.randomandlastitems,playlist=$INFO[Skin.String(CustomMenu.3.Path)],method=Last,limit=10,unwatched=True,resume=False,property=CustomWidget3Recent)</onload>
+	<onload condition="System.HasAddon(script.randomandlastitems) + Skin.HasSetting(EnableWidgets) + Skin.HasSetting(CustomWidget3) + !IsEmpty(Skin.String(CustomMenu.3.Path)) + Stringcompare(Skin.String(CustomMenu.3.Type),Video Playlist)">RunScript(script.randomandlastitems,playlist=$INFO[Skin.String(CustomMenu.3.Path)],method=Last, limit=10,unwatched=False,resume=True,property=CustomWidget3Recommended)</onload>
+	<onload condition="System.HasAddon(script.favourites)">RunScript(script.favourites)</onload>
+	<onunload condition="Container(9000).Hasfocus(10) | Container(9000).Hasfocus(11) | ControlGroup(9010).HasFocus | ControlGroup(9016).HasFocus | ControlGroup(9017).HasFocus">SetProperty(VideosDirectLink,True)</onunload>
+	<onunload condition="Control.HasFocus(9000) + Container(9000).Hasfocus(2)">ClearProperty(VideosDirectLink)</onunload>
+	<controls>
+		<include>CommonHomeBackground</include>
+		<include>CommonBackground</include>
+		
+		
+		<include condition="System.HasAddon(service.skin.widgets) + Skin.HasSetting(EnableWidgets)">SkinWidgets</include>
+		<include condition="System.HasAddon(script.randomandlastitems) + Skin.HasSetting(EnableWidgets) + [Skin.HasSetting(CustomWidget1) | Skin.HasSetting(CustomWidget2) | Skin.HasSetting(CustomWidget3)]">CustomWidgets</include>
+		<include condition="!Skin.HasSetting(VerticalHome)">SkinHome</include>
+		<include condition="Skin.HasSetting(VerticalHome)">SkinHomeSub</include>
+		<include>Clock</include>
+		
+	</controls>	
+</window>

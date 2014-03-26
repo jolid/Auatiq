@@ -1,0 +1,233 @@
+<includes>
+	<include name="Fullscreen">
+		<control type="group">
+			<visible>Control.IsVisible(574)</visible>
+			<include>VisibleFadeEffect</include>
+			<posx>0</posx>
+			<posy>0</posy>
+			
+			<control type="image">
+				<posx>0</posx>
+				<posy>530</posy>
+				<width>1310</width>
+				<height>200</height>
+				<aspectratio>stretch</aspectratio>
+				<texture>contentpanel.png</texture>
+			</control>
+
+			<control type="button">
+				<description>right Arrow</description>
+				<posx>1260</posx>
+				<posy>590</posy>
+				<width>20</width>
+				<height>25</height>
+				<texturefocus>arrow-big-right.png</texturefocus>
+				<texturenofocus>arrow-big-right.png</texturenofocus>	
+				<include>VisibleFadeEffect</include>
+			</control>
+
+			<control type="button">
+				<description>right Arrow</description>
+				<posx>10</posx>
+				<posy>590</posy>
+				<width>20</width>
+				<height>25</height>
+				<texturefocus>arrow-big-left.png</texturefocus>
+				<texturenofocus>arrow-big-left.png</texturenofocus>	
+				<include>VisibleFadeEffect</include>
+			</control>
+
+			<control type="label">
+				<posx>270</posx>
+				<posy>540</posy>
+				<width>690</width>
+				<height>25</height>
+				<font>font24_title</font>
+				<textcolor>white</textcolor>
+				<shadowcolor>black</shadowcolor>
+				<selectedcolor>selected</selectedcolor>
+				<align>left</align>
+				<aligny>left</aligny>
+				<label>$VAR[FullscreenLabel1]</label>
+				<scroll>true</scroll>
+				<animation effect="slide" start="0,0" end="0,100" delay="0" time="300">WindowClose</animation>
+				<animation effect="slide" start="0,100" end="0,0" delay="0" time="300">WindowOpen</animation>
+			</control>
+
+			<control type="label">
+				<posx>270</posx>
+				<posy>570</posy>
+				<width>750</width>
+				<height>25</height>
+				<font>font13</font>
+				<textcolor>grey</textcolor>
+				<selectedcolor>selected</selectedcolor>
+				<align>left</align>
+				<aligny>left</aligny>
+				<label>$VAR[FullscreenLabel2]</label>
+				<animation effect="slide" start="0,0" end="0,100" delay="0" time="300">WindowClose</animation>
+				<animation effect="slide" start="0,100" end="0,0" delay="0" time="300">WindowOpen</animation>
+				<scroll>true</scroll>
+				<visible>!StringCompare(ListItem.Label,..)</visible>
+				<visible>Container.Content(Movies) | Container.Content(TVShows) | Container.Content(Seasons) | Container.Content(Episodes) | Container.Content(Musicvideos)</visible>
+			</control>
+
+			<control type="label">
+				<posx>270</posx>
+				<posy>598</posy>
+				<width>750</width>
+				<height>25</height>
+				<font>font12</font>
+				<textcolor>grey</textcolor>
+				<selectedcolor>selected</selectedcolor>
+				<align>left</align>
+				<aligny>left</aligny>
+				<label>$VAR[FullscreenLabel3]</label>
+				<animation effect="slide" start="0,0" end="0,100" delay="0" time="300">WindowClose</animation>
+				<animation effect="slide" start="0,100" end="0,0" delay="0" time="300">WindowOpen</animation>
+				<scroll>true</scroll>
+				<visible>!StringCompare(ListItem.Label,..)</visible>
+				<visible>Container.Content(Movies) | Container.Content(TVShows) | Container.Content(Seasons) | Container.Content(Episodes) | Container.Content(Musicvideos)</visible>
+			</control>
+
+			<control type="group">
+				<visible>Skin.HasSetting(NextAired) + [Container.Content(TVShows) | Container.Content(Seasons)] + !IsEmpty(Window(Home).Property(NextAired.NextDate))</visible>
+				<posx>0</posx>
+				<posy>0</posy>
+				<control type="label">
+					<posx>1020</posx>
+					<posy>596</posy>
+					<width>340</width>
+					<height>20</height>
+					<align>right</align>
+					<aligny>center</aligny>
+					<font>font13</font>
+					<textcolor>grey</textcolor>
+					<shadowcolor>black</shadowcolor>
+					<label>$INFO[Window(Home).Property(NextAired.NextDate),$LOCALIZE[209]: ]$INFO[Window(Home).Property(NextAired.AirTime), • ]</label>
+					<visible>!StringCompare(ListItem.Label,..)</visible>
+				</control>
+			</control>
+
+			<control type="textbox">
+				<animation effect="slide" start="0,0" end="0,100" delay="0" time="300">WindowClose</animation>
+				<animation effect="slide" start="0,100" end="0,0" delay="0" time="300">WindowOpen</animation>
+				<posx>270</posx>
+				<posy>630</posy>
+				<width>750</width>
+				<height>85</height>
+				<font>font12</font>
+				<align>justify</align>
+				<textcolor>grey</textcolor>
+				<shadowcolor>black</shadowcolor>
+				<pagecontrol>-</pagecontrol>
+				<label>$VAR[FullscreenPlot]</label>
+				<autoscroll time="2000" delay="5000" repeat="5000">true</autoscroll>
+			</control>
+			
+			<control type="wraplist" id="574">
+				<visible>Container.Content(Movies) | Container.Content(TVShows) | Container.Content(Seasons) | Container.Content(Episodes) | Container.Content(MusicVideos)</visible>
+				<posx>20</posx>
+				<posy>380</posy>
+				<width>1280</width>
+				<height>720</height>
+				<onleft>574</onleft>
+				<onright>574</onright>
+				<onup>2</onup>
+				<ondown>2</ondown>
+				<viewtype label="Fullscreen">bigwrap</viewtype>
+				<pagecontrol>60</pagecontrol>
+				<scrolltime tween="quadratic">500</scrolltime>
+				<focusposition>4</focusposition>
+				<orientation>horizontal</orientation>
+				<preloaditems>2</preloaditems>
+				<itemlayout height="720" width="1280">
+				</itemlayout>
+				<focusedlayout height="720" width="1280">
+				</focusedlayout>
+			</control>
+
+			<control type="image">
+				<posx>45</posx>
+				<posy>390</posy>
+				<width>214</width>
+				<height>330</height>
+				<aspectratio scalediffuse="false">scale</aspectratio>
+				<fadetime>50</fadetime>
+				<texture background="true" diffuse="diffuse-square.png">$INFO[ListItem.Icon]</texture>
+				<bordertexture border="5">thumbshadow.png</bordertexture>
+				<bordersize>7</bordersize>
+				<visible>Container.Content(Movies) | Container.Content(TVShows) | Container.Content(Seasons) | Container.Content(MusicVideos)</visible>
+			</control>
+
+			<control type="image">
+				<posx>50</posx>
+				<posy>180r</posy>
+				<width>214</width>
+				<height>137</height>
+				<texture background="true" diffuse="diffuse-square.png">$INFO[ListItem.Icon]</texture>
+				<aspectratio scalediffuse="false" aligny="center">scale</aspectratio>
+				<bordertexture border="8">thumbshadow.png</bordertexture>
+				<bordersize>8</bordersize>
+				<visible>Container.Content(Episodes)</visible>
+			</control>
+
+			<control type="image">
+				<include>VisibleFadeEffect</include>
+				<posx>270</posx>
+				<posy>430</posy>
+				<alignx>left</alignx>
+				<width>235</width>
+				<height>90</height>
+				<texture background="true">$INFO[ListItem.Art(clearlogo)]</texture>
+				<fadetime>100</fadetime>
+				<aspectratio scalediffuse="false">keep</aspectratio>
+				<visible>Skin.HasSetting(ExtraArtwork) + Skin.HasSetting(ClearLogo) + [Container.Content(Movies) | Container.Content(TVShows)]</visible>
+			</control>
+
+			<control type="image">
+				<animation effect="slide" start="0,0" end="-250,0" time="50" condition="Container.Content(Episodes)">Conditional</animation>
+				<include>VisibleFadeEffect</include>
+				<posx>270</posx>
+				<posy>430</posy>
+				<alignx>left</alignx>
+				<width>235</width>
+				<height>90</height>
+				<texture background="true">$INFO[ListItem.Art(tvshow.clearlogo)]</texture>
+				<fadetime>100</fadetime>
+				<aspectratio scalediffuse="false">keep</aspectratio>
+				<visible>Skin.HasSetting(ExtraArtwork) + Skin.HasSetting(ClearLogo) + [Container.Content(Seasons) | Container.Content(Episodes)]</visible>
+			</control>
+
+			<control type="image">
+				<animation effect="slide" start="0,0" end="5,-40" time="0" condition="Container.Content(Episodes)">Conditional</animation>
+				<posx>215</posx>
+				<posy>45r</posy>
+				<width>35</width>
+				<height>35</height>
+				<aspectratio>keep</aspectratio>
+				<texture>$INFO[ListItem.Overlay]</texture>
+			</control>
+						
+			<control type="group">
+				<posx>0</posx>
+				<posy>0</posy>
+				<visible>[Container.Content(Movies) | Container.Content(Episodes) | Container.Content(MusicVideos)] + Control.IsVisible(574)</visible>
+				<control type="grouplist">
+					<description>Flagging Conditions Images</description>
+					<posx>970</posx>
+					<posy>540</posy>
+					<width>800</width>
+					<align>left</align>
+					<itemgap>0</itemgap>
+					<orientation>horizontal</orientation>
+					<include>VideoTypeHackFlaggingConditions</include>
+					<include>VideoCodecFlaggingConditions</include>
+					<include>AudioCodecFlaggingConditions</include>
+					<include>AudioChannelsFlaggingConditions</include>
+				</control>
+			</control>
+			
+		</control>
+	</include>
+</includes>	

@@ -1,0 +1,203 @@
+<window id="10140">
+	<defaultcontrol always="true">9</defaultcontrol>
+	<coordinates>
+		<system>1</system>
+		<posx>220</posx>
+		<posy>65</posy>
+	</coordinates>
+	<include>dialogeffect</include>
+	<controls>
+		<control type="image">
+			<description>background image</description>
+			<posx>0</posx>
+			<posy>0</posy>
+			<width>1500</width>
+			<height>900</height>
+			<texture border="40">DialogBack.png</texture>
+			<visible>![Window.IsVisible(FullscreenVideo) | Window.IsVisible(Visualisation)]</visible>
+		</control>
+		<control type="image">
+			<description>background image</description>
+			<posx>0</posx>
+			<posy>0</posy>
+			<width>1500</width>
+			<height>900</height>
+			<texture border="40">DialogBack2.png</texture>
+			<visible>Window.IsVisible(FullscreenVideo) | Window.IsVisible(Visualisation)</visible>
+		</control>
+
+		<control type="label" id="20">
+			<description>header label</description>
+			<posx>0</posx>
+			<posy>80</posy>
+			<width>1500</width>
+			<height>60</height>
+			<font>font50</font>
+			<label>-</label>
+			<align>center</align>
+			<aligny>center</aligny>
+			<textcolor>white</textcolor>
+			
+		</control>
+
+		<control type="grouplist" id="9">
+			<description>button area</description>
+			<posx>0</posx>
+			<posy>200</posy>
+			<width>1500</width>
+			<height>60</height>
+			<itemgap>5</itemgap>
+			<align>center</align>
+			<orientation>horizontal</orientation>
+			<onleft>9</onleft>
+			<onright>9</onright>
+			<onup>2</onup>
+			<ondown>2</ondown>
+			<align>center</align>
+			
+		</control>
+		
+		
+		<control type="grouplist" id="2">
+			<description>control area</description>
+			<posx>150</posx>
+			<posy>280</posy>
+			<width>1200</width>
+			<height>580</height>
+			<itemgap>5</itemgap>
+			<pagecontrol>30</pagecontrol>
+			<onup>9</onup>
+			<ondown>9001</ondown>
+			<onleft>2</onleft>
+			<onright>30</onright>
+			
+		</control>
+		<control type="scrollbar" id="30">
+			<animation effect="fade" start="100" end="0" time="200" condition="Skin.HasSetting(PassiveScrollbars) + !Control.HasFocus(30)">Conditional</animation>
+			<posx>1400</posx>
+			<posy>220</posy>
+			<width>25</width>
+			<height>580</height>
+			<texturesliderbackground border="0,14,0,14">ScrollBarV.png</texturesliderbackground>
+			<texturesliderbar border="2,16,2,16">ScrollBarV_bar.png</texturesliderbar>
+			<texturesliderbarfocus border="2,16,2,16">ScrollBarV_bar_focus.png</texturesliderbarfocus>
+			<textureslidernib>ScrollBarNib.png</textureslidernib>
+			<textureslidernibfocus>ScrollBarNib.png</textureslidernibfocus>
+			<onleft>2</onleft>
+			<onright>9</onright>
+			<showonepage>false</showonepage>
+			<orientation>vertical</orientation>
+		</control>
+		<control type="group" id="9001">
+			<posy>815</posy>
+			<posx>400</posx>
+			<control type="button" id="10">
+				<description>OK Button</description>
+				<include>testbutton</include>
+				<posx>0</posx>
+				<posy>0</posy>
+				<width>200</width>
+				<height>60</height>
+				<align>center</align>
+				<aligny>center</aligny>
+				<font>font30</font>
+				<textcolor>grey3</textcolor>
+				<label>186</label>
+				<onleft>12</onleft>
+				<onright>11</onright>
+				<onup>2</onup>
+				<ondown>9</ondown>
+			</control>
+			<control type="button" id="11">
+				<description>Cancel Button</description>
+				<posx>210</posx>
+				<posy>0</posy>
+				<width>200</width>
+				<height>40</height>
+				<align>center</align>
+				<aligny>center</aligny>
+				<include>testbutton</include>
+				<label>222</label>
+				<onleft>10</onleft>
+				<onright>12</onright>
+				<onup>2</onup>
+				<ondown>9</ondown>
+			</control>
+			<control type="button" id="12">
+				<description>Defaults Button</description>
+				<posx>420</posx>
+				<posy>0</posy>
+				<width>200</width>
+				<height>40</height>
+				<align>center</align>
+				<aligny>center</aligny>
+				<include>testbutton</include>
+				<label>409</label>
+				<onleft>11</onleft>
+				<onright>10</onright>
+				<onup>2</onup>
+				<ondown>9</ondown>
+			</control>
+		</control>
+
+		<control type="button" id="13">
+			<description>Default Category Button</description>
+			<height>40</height>
+			<width>250</width>
+			<align>center</align>
+			<aligny>center</aligny>
+			<font>font35</font>
+			<textcolor>grey3</textcolor>
+			<focusedcolor>white</focusedcolor>
+			<pulseonselect>false</pulseonselect>
+		</control>
+		<control type="button" id="3">
+			<description>Default Button</description>
+			<height>40</height>
+			<font>font30</font>
+			<textcolor>grey3</textcolor>
+			<focusedcolor>white</focusedcolor>
+			
+		</control>
+		<control type="radiobutton" id="4">
+			<description>Default RadioButton</description>
+			<height>40</height>
+			<font>font30</font>
+			<textcolor>grey3</textcolor>
+			<focusedcolor>white</focusedcolor>
+			
+		</control>
+		<control type="spincontrolex" id="5">
+			<description>Default spincontrolex</description>
+			<height>40</height>
+			<textcolor>grey3</textcolor>
+			<focusedcolor>white</focusedcolor>
+			
+			<font>font30</font>
+			<aligny>center</aligny>
+			<reverse>yes</reverse>
+		</control>
+		<control type="label" id="7">
+			<height>35</height>
+			<font>font30</font>
+			<label>-</label>
+			<textcolor>orange</textcolor>
+			
+			<align>left</align>
+			<aligny>center</aligny>
+		</control>
+		<control type="image" id="6">
+			<description>Default Seperator</description>
+			<height>2</height>
+			<texture>separator2.png</texture>
+		</control>
+		<control type="sliderex" id="8">
+			<description>Default Slider</description>
+			<height>40</height>
+			<font>font30</font>
+			<textcolor>grey3</textcolor>
+			<focusedcolor>white</focusedcolor>
+			
+		</control>
+	</controls>
+</window>

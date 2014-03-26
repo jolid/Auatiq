@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<addon
+  id="skin.aquatic"
+  version="0.1"
+  name="Aquatic"
+  provider-name="jolid">
+  <requires>
+    <import addon="xbmc.gui" version="4.0.0"/>
+    <import addon="script.artwork.downloader" version="12.0.21"/>
+    <import addon="script.favourites" version="4.0.9"/>
+    <import addon="service.skin.widgets" version="0.0.27"/>
+    <import addon="script.randomandlastitems" version="2.1.6"/>
+    <import addon="script.videolanguage" version="0.1.0"/>
+    <import addon="script.grab.fanart" version="0.11.9"/>
+  </requires>
+  <extension
+    point="xbmc.gui.skin"
+    defaultthemename="textures.xbt"
+    debugging="false"
+    effectslowdown="0.75">
+    <res width="1920" height="1080" aspect="16:9" default="true" folder="720p" />
+  </extension>
+  <extension point="xbmc.addon.metadata">
+    <summary lang="en"></summary>
+    <description lang="en"</description>
+    <platform>all</platform>
+  </extension>
+</addon>

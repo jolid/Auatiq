@@ -1,0 +1,6 @@
+<window type="dialog" id="1113">
+    <allowoverlay>no</allowoverlay>
+    <onload condition="Skin.HasSetting(FullscreenMusic) + !Window.IsActive(visualisation)">FullScreen</onload>
+    <visible>Player.HasAudio + !SubString(Window(videolibrary).Property(TvTunesIsAlive),True)</visible>
+    <controls></controls>
+</window> 
